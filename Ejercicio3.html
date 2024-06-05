@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        .info {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="info-container"></div>
+
+    <script>
+        let nombre = 'Seidy';
+        let edad = 23;
+        let altura = 1.52;
+        let casado = false;
+
+        function mostrarInformacion() {
+            const infoContainer = document.getElementById('info-container');
+
+            let datos = [
+                { label: 'Nombre', value: nombre },
+                { label: 'Edad', value: edad },
+                { label: 'Altura', value: altura + ' m' },
+                { label: 'Casado', value: casado ? 'Sí' : 'No' }
+            ];
+
+            datos.forEach(dato => {
+                let infoDiv = document.createElement('div');
+                infoDiv.classList.add('info');
+                infoDiv.innerHTML = `<strong>${dato.label}:</strong> ${dato.value}`;
+                infoContainer.appendChild(infoDiv);
+            });
+        }
+
+        mostrarInformacion();
+    </script>
+
+</body>
+
+</html>

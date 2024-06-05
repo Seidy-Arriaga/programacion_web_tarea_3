@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-field {
+            margin-bottom: 15px;
+        }
+
+        .input-field input {
+            padding: 10px;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+        }
+
+        .input-field button {
+            padding: 10px 20px;
+            font-size: 1em;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="input-field">
+            <label for="valor1">Ingrese valor inferior:</label>
+            <input type="number" id="valor1" placeholder="Valor inferior">
+        </div>
+        <div class="input-field">
+            <label for="valor2">Ingrese valor superior:</label>
+            <input type="number" id="valor2" placeholder="Valor superior">
+        </div>
+        <div class="input-field">
+            <button onclick="mostrarComprendidos()">Mostrar Números</button>
+        </div>
+        <div class="output" id="output"></div>
+    </div>
+
+    <script>
+        function mostrarComprendidos() {
+            let valor1 = parseInt(document.getElementById('valor1').value);
+            let valor2 = parseInt(document.getElementById('valor2').value);
+            let output = document.getElementById('output');
+
+            // Limpiar contenido previo
+            output.innerHTML = '';
+
+            if (isNaN(valor1) || isNaN(valor2)) {
+                output.textContent = 'Por favor, ingrese ambos valores correctamente.';
+                return;
+            }
+
+            if (valor1 > valor2) {
+                output.textContent = 'El valor inferior debe ser menor o igual al valor superior.';
+                return;
+            }
+
+            for (let f = valor1; f <= valor2; f++) {
+                output.innerHTML += f + ' ';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

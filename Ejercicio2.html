@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    #message {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <button onclick="mostrarMensaje()">Haz clic aquí</button>
+  <p id="message"></p>
+</div>
+
+<script>
+  function mostrarMensaje() {
+    document.getElementById('message').innerText = 'Hola Mundo';
+  }
+</script>
+
+</body>
+</html>

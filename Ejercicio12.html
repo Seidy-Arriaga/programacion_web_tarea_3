@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <button onclick="mostrarNumeros()">Mostrar Números del 1 al 100</button>
+        <div class="output" id="output"></div>
+    </div>
+
+    <script>
+        function mostrarNumeros() {
+            let x = 1;
+            let output = document.getElementById('output');
+            output.innerHTML = ''; // Limpiar contenido previo
+            while (x <= 100) {
+                output.innerHTML += x + '<br>';
+                x++;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

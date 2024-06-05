@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-field {
+            margin-bottom: 15px;
+        }
+
+        .input-field input {
+            padding: 10px;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+        }
+
+        .input-field button {
+            padding: 10px 20px;
+            font-size: 1em;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="input-field">
+            <label for="dia">Ingrese día:</label>
+            <input type="number" id="dia" placeholder="Día">
+        </div>
+        <div class="input-field">
+            <label for="mes">Ingrese mes:</label>
+            <input type="number" id="mes" placeholder="Mes">
+        </div>
+        <div class="input-field">
+            <label for="anio">Ingrese año:</label>
+            <input type="number" id="anio" placeholder="Año">
+        </div>
+        <div class="input-field">
+            <button onclick="mostrarFecha()">Mostrar Fecha</button>
+        </div>
+        <div class="output" id="output"></div>
+    </div>
+
+    <script>
+        function formatearFecha(dia, mes, año) {
+            let s = 'Hoy es ' + dia + ' de ';
+            switch (mes) {
+                case 1:
+                    s += 'enero ';
+                    break;
+                case 2:
+                    s += 'febrero ';
+                    break;
+                case 3:
+                    s += 'marzo ';
+                    break;
+                case 4:
+                    s += 'abril ';
+                    break;
+                case 5:
+                    s += 'mayo ';
+                    break;
+                case 6:
+                    s += 'junio ';
+                    break;
+                case 7:
+                    s += 'julio ';
+                    break;
+                case 8:
+                    s += 'agosto ';
+                    break;
+                case 9:
+                    s += 'septiembre ';
+                    break;
+                case 10:
+                    s += 'octubre ';
+                    break;
+                case 11:
+                    s += 'noviembre ';
+                    break;
+                case 12:
+                    s += 'diciembre ';
+                    break;
+                default:
+                    return 'Mes inválido';
+            }
+            s += 'de ' + año;
+            return s;
+        }
+
+        function mostrarFecha() {
+            let dia = parseInt(document.getElementById('dia').value);
+            let mes = parseInt(document.getElementById('mes').value);
+            let anio = parseInt(document.getElementById('anio').value);
+            let output = document.getElementById('output');
+
+            if (isNaN(dia) || isNaN(mes) || isNaN(anio)) {
+                output.textContent = 'Por favor, ingrese una fecha válida.';
+                return;
+            }
+
+            output.textContent = formatearFecha(dia, mes, anio);
+        }
+    </script>
+
+</body>
+
+</html>
